@@ -1,4 +1,4 @@
-using Martijn_bakker;
+using Martijn_Bakker;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.FluentUI.AspNetCore.Components;
