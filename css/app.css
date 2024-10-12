@@ -1,61 +1,251 @@
-@import '/_content/Microsoft.FluentUI.AspNetCore.Components/css/reboot.css';
+@font-face {
+    font-display: swap;
+    font-family: "Consolas";
+    font-style: normal;
+    font-weight: 100;
+    src: url("../fonts/Consolas.woff") format("woff");
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Consolas Bold";
+    font-style: normal;
+    font-weight: 100;
+    src: url("../fonts/Consolas-Bold.woff") format("woff");
+}
+
+
+@font-face {
+    font-display: swap;
+    font-family: "Segoe UI Light";
+    font-style: normal;
+    font-weight: 100;
+    src: url("../fonts/SegoeUILight.woff") format("woff");
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Segoe UI Semilight";
+    font-style: normal;
+    font-weight: 300;
+    src: url("../fonts/SegoeUISemilight.woff") format("woff");
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Segoe UI";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/SegoeUI.woff") format("woff");
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Segoe UI Semibold";
+    font-style: normal;
+    font-weight: 600;
+    src: url("../fonts/SegoeUISemibold.woff") format("woff");
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Segoe UI Bold";
+    font-style: normal;
+    font-weight: 700;
+    src: url("../fonts/SegoeUIBold.woff") format("woff");
+}
 
 body {
-    --body-font: "Segoe UI Variable", "Segoe UI", sans-serif;
-    font-family: var(--body-font);
-    font-size: var(--type-ramp-base-font-size);
-    line-height: var(--type-ramp-base-line-height);
+    --c-primary-old: #c00cc0;
+    --c-primary: #005e75;
+    --c-primary-dark: #8b0995;
+    --c-primary-light: #dd0eb3;
+    --c-primary-xlight: #fcf2f7;
+    --c-primary-xxlight: #fcf2f4;
+    --c-secondary: #e10890;
+    --c-neutral-black: #000000;
+    --c-neutral-dark: #1f1f1f;
+    --c-neutral-grey9: #faf9f8;
+    --c-neutral-grey8: #f3f2f1;
+    --c-neutral-grey7: #edebe9;
+    --c-neutral-grey6: #d2d0ce;
+    --c-neutral-grey5: #c8c6c4;
+    --c-neutral-grey4: #a19f9d;
+    --c-neutral-grey3: #605e5c;
+    --c-neutral-grey2: #3b3a39;
+    --c-neutral-grey1: #323130;
+    --c-neutral-white: #ffffff;
+    --gradient-primary-color: #c00cc0;
+    --gradient-secondary-color: #e10890;
+    --gradient-final: radial-gradient( 101.22% 790.99% at 0% 3.41%, #c00cc0 0%, #e10890 100% );
+    --ff-light: "Segoe UI Light";
+    --ff-semilight: "Segoe UI Semilight";
+    --ff-regular: "Segoe UI";
+    --ff-semibold: "Segoe UI Semibold";
+    --ff-bold: "Segoe UI Bold";
+    --ff-code: "Consolas";
+    --ff-code-bold: "Consolas Bold";
+    --headlines-h1-fs: 70px;
+    --headlines-h1-lh: 84px;
+    --headlines-extra-fs: 284px;
+    --headlines-extra-lh: 72px;
+    --text-xxl-fs: 24px;
+    --text-xxl-lh: 32px;
+    --text-xl-fs: 20px;
+    --text-xl-lh: 30px;
+    --text-l-fs: 18px;
+    --text-l-lh: 28px;
+    --text-m-fs: 16px;
+    --text-m-lh: 24px;
+}
+
+html, body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    background-color: var(--c-neutral-dark);
+    color: var(--c-neutral-white);
+    font-family: var(--ff-regular);
+    font-size: var(--text-m-fs);
+    line-height: var(--text-m-lh);
     margin: 0;
 }
 
-.navmenu-icon {
-    display: none;
+* {
+    -webkit-print-color-adjust: exact;
+    box-sizing: border-box;
+    color-adjust: exact;
 }
 
-.main {
-    min-height: calc(100dvh - 86px);
-    color: var(--neutral-foreground-rest);
-    align-items: stretch !important;
-}
-
-.body-content {
-    align-self: stretch;
-    height: calc(100dvh - 86px) !important;
-    display: flex;
-}
-
-.content {
-    padding: 0.5rem 1.5rem;
-    align-self: stretch !important;
-    width: 100%;
-}
-
-footer {
-    background: var(--neutral-layer-4);
-    color: var(--neutral-foreground-rest);
-    align-items: center;
-    padding: 10px 10px;
-}
-
-    footer a {
-        color: var(--neutral-foreground-rest);
-        text-decoration: none;
+    *:focus,
+    *:focus-visible *:focus-within {
+        outline: 0;
     }
 
-        footer a:focus {
-            outline: 1px dashed;
-            outline-offset: 3px;
-        }
+    *::-webkit-scrollbar {
+        background-color: transparent;
+        border-radius: 4px;
+        height: 6px;
+        width: 6px;
+    }
 
-        footer a:hover {
-            text-decoration: underline;
-        }
+    *::-webkit-scrollbar-track {
+        background-color: transparent;
+        border-radius: 4px;
+    }
 
-.alert {
-    border: 1px dashed var(--accent-fill-rest);
-    padding: 5px;
+    *::-webkit-scrollbar-thumb {
+        background-color: var(--c-neutral-grey4);
+        border-radius: 4px;
+    }
+
+h1:focus {
+    outline: none;
 }
 
+*[id] {
+    scroll-margin-top: 40px;
+}
+
+a, a:hover {
+    color: inherit;
+    display: inline-block;
+    text-decoration: none;
+}
+
+dl, ol, ul {
+    margin-top: revert;
+}
+
+button {
+    border: none;
+    margin: 0;
+    width: auto;
+    overflow: visible;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    text-align: inherit;
+    line-height: inherit;
+    -webkit-appearance: none;
+}
+
+img {
+    display: inline-block;
+    max-width: 100%;
+    margin: 0;
+    border-width: 0;
+    -ms-interpolation-mode: bicubic;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+.section {
+    padding: 120px 180px;
+    position: relative;
+}
+
+@media screen and (max-width: 1919px) {
+    body {
+        --headlines-h1-fs: 54px;
+        --headlines-h1-lh: 62px;
+        --headlines-extra-fs: 222px;
+    }
+
+    .section {
+        padding: 100px 7%;
+    }
+}
+
+@media screen and (max-width: 1279px) {
+    body {
+        --headlines-extra-fs: 150px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    body {
+        --headlines-h1-fs: 48px;
+        --headlines-h1-lh: 60px;
+        --headlines-extra-fs: 110px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    body {
+        --headlines-h1-fs: 30px;
+        --headlines-h1-lh: 40px;
+        --headlines-extra-fs: 55px;
+        --text-xl-fs: 16px;
+        --text-xl-lh: 24px;
+    }
+
+    .section {
+        padding: 65px 20px 0;
+    }
+}
+
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.valid.modified:not([type=checkbox]) {
+    outline: 1px solid #26b050;
+}
+
+.invalid {
+    outline: 1px solid red;
+}
+
+.validation-message {
+    color: red;
+}
 
 #blazor-error-ui {
     background: lightyellow;
@@ -67,7 +257,6 @@ footer {
     position: fixed;
     width: 100%;
     z-index: 1000;
-    margin: 20px 0;
 }
 
     #blazor-error-ui .dismiss {
@@ -83,105 +272,6 @@ footer {
     color: white;
 }
 
-    .blazor-error-boundary::before {
-        content: "An error has occurred. "
+    .blazor-error-boundary::after {
+        content: "An error has occurred.";
     }
-
-.loading-progress {
-    position: relative;
-    display: block;
-    width: 8rem;
-    height: 8rem;
-    margin: 20vh auto 1rem auto;
-}
-
-    .loading-progress circle {
-        fill: none;
-        stroke: #e0e0e0;
-        stroke-width: 0.6rem;
-        transform-origin: 50% 50%;
-        transform: rotate(-90deg);
-    }
-
-        .loading-progress circle:last-child {
-            stroke: #1b6ec2;
-            stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
-            transition: stroke-dasharray 0.05s ease-in-out;
-        }
-
-.loading-progress-text {
-    position: absolute;
-    text-align: center;
-    font-weight: bold;
-    inset: calc(20vh + 3.25rem) 0 auto 0.2rem;
-}
-
-    .loading-progress-text:after {
-        content: var(--blazor-load-percentage-text, "Loading");
-    }
-
-code {
-    color: #c02d76;
-}
-
-@media (max-width: 600px) {
-    .header-gutters {
-        margin: 0.5rem 3rem 0.5rem 1.5rem !important;
-    }
-
-    [dir="rtl"] .header-gutters {
-        margin: 0.5rem 1.5rem 0.5rem 3rem !important;
-    }
-
-    .main {
-        flex-direction: column !important;
-        row-gap: 0 !important;
-    }
-
-    nav.sitenav {
-        width: 100%;
-        height: 100%;
-    }
-
-    #main-menu {
-        width: 100% !important;
-    }
-
-        #main-menu > div:first-child:is(.expander) {
-            display: none;
-        }
-
-    .navmenu {
-        width: 100%;
-    }
-
-    #navmenu-toggle {
-        appearance: none;
-    }
-
-        #navmenu-toggle ~ nav {
-            display: none;
-        }
-
-        #navmenu-toggle:checked ~ nav {
-            display: block;
-        }
-
-    .navmenu-icon {
-        cursor: pointer;
-        z-index: 10;
-        display: block;
-        position: absolute;
-        top: 15px;
-        left: unset;
-        right: 20px;
-        width: 20px;
-        height: 20px;
-        border: none;
-    }
-
-    [dir="rtl"] .navmenu-icon {
-        left: 20px;
-        right: unset;
-    }
-}
